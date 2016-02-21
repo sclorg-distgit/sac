@@ -4,7 +4,7 @@
 
 Name: %{?scl_prefix}%{pkg_name}
 Version: 1.3
-Release: 17.11%{?dist}
+Release: 17.12%{?dist}
 Summary: Java standard interface for CSS parser
 License: W3C
 #Original source: http://www.w3.org/2002/06/%{pkg_name}java-%{version}.zip
@@ -32,20 +32,20 @@ Javadoc for %{pkg_name}.
 
 %prep
 %setup -q -n %{pkg_name}-%{version}
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 install -m 644 %{SOURCE1} build.xml
 find . -name "*.jar" -exec rm -f {} \;
 %{?scl:EOF}
 
 %build
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 ant jar javadoc
 %{?scl:EOF}
 
 %install
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 rm -rf $RPM_BUILD_ROOT
 
@@ -79,6 +79,9 @@ install -pm 644 %{SOURCE3} \
 %{_javadocdir}/%{name}
 
 %changelog
+* Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 1.3-17.12
+- maven33 rebuild #2
+
 * Sat Jan 09 2016 Michal Srb <msrb@redhat.com> - 1.3-17.11
 - maven33 rebuild
 
