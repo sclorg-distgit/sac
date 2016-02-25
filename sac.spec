@@ -4,7 +4,7 @@
 
 Name: %{?scl_prefix}%{pkg_name}
 Version: 1.3
-Release: 17.12%{?dist}
+Release: 17.13%{?dist}
 Summary: Java standard interface for CSS parser
 License: W3C
 #Original source: http://www.w3.org/2002/06/%{pkg_name}java-%{version}.zip
@@ -79,6 +79,9 @@ install -pm 644 %{SOURCE3} \
 %{_javadocdir}/%{name}
 
 %changelog
+* Mon Feb 08 2016 Michal Srb <msrb@redhat.com> - 1.3-17.13
+- Fix BR on maven-local & co.
+
 * Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 1.3-17.12
 - maven33 rebuild #2
 
